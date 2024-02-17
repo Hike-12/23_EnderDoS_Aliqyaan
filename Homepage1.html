@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #90EE90;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            color: red;
+            margin: 0;
+        }
+        section {
+            width: 80%;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #4bf33c
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            margin-top: 0;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        button[type="submit"],
+        button[type="button"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin: 6px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+        }
+        button[type="submit"],
+        button[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(136, 206, 253);">
+
+<header>
+    <h1>Welcome to Your Healthcare Homepage</h1>
+</header>
+
+<p><section id="find-doctors">
+    <div class="container">
+        <h2>Find Doctors</h2></p>
+        <img align="right" src="doc img.jpg"   height="200"  width="450" border="2">
+        <p>*Highly Qualified Doctors</p>
+        <p>*Many years of Experience</p>
+        <p>*Highly Specializied Doctors</p>
+        <p>*Committed to Patients</p>
+        <br><br>
+        <ul>
+            <li>Consult a Doctor</li>
+        </ul>
+        <form action="find_doctors.php" method="post" id="findDoctorsForm">
+             <button id="viewDoctorsBtn" type="button">View Doctors</button>
+            <label for="medicationType">Enter the type of medication you require:</label>
+            <input type="text" id="medicationType" name="medicationType" placeholder="Enter here" required><br>
+            <div class="button-container">
+                <button type="submit">Find Doctors</button>
+               
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="customer-reviews">
+    <div class="container">
+        <h2>Reviews</h2>
+        <p>Please feel free to drop any suggestions and reviews</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <div class="button-container">
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="find-medicine">
+    <div class="container">
+        <h2>Find Medicine</h2>
+        <form action="medicine_list.php" method="post" id="findMedicineForm">
+            <div class="button-container">
+                <button type="submit">View list of medicines</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.getElementById("findDoctorsForm").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        var medicationType = document.getElementById("medicationType").value;
+        if (medicationType.trim() !== "") {
+            window.location.href = "find_doctors.php?medicationType=" + encodeURIComponent(medicationType);
+        } else {
+            alert("Please enter the type of medication you require.");
+        }
+    });
+
+    document.getElementById("viewDoctorsBtn").addEventListener("click", function() {
+        window.location.href = "view_doctors.php";
+    });
+
+    document.getElementById("findMedicineForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevents the default form submission
+        window.location.href = "medicine_list.php";
+    });
+</script>
+
+</body>
+</html>
