@@ -45,5 +45,4 @@ values
 (14,"Doxazosin","Hypertension"),
 (15,"Lisinopril","Heart failure");
 
-GRANT ALL PRIVILEGES ON RuralAid * TO 'root'@'localhost' IDENTIFIED BY 'futreniyas';
 
