@@ -56,25 +56,24 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
-// Get all doctors
-// app.get('/doctorinfo', async (req, res) => {
-//     try {
-//         const [rows] = await pool.query('SELECT * FROM doctorinfo');
-//         res.json(rows);
-//     } catch (error) {
-//         console.error('Error executing MySQL query:', error);
-//         res.status(500).json({ error: 'Error retrieving doctor information.' });
-//     }
-// });
+Get all doctors
+app.get('/doctorinfo', async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM doctorinfo');
+        res.json(rows);
+    } catch (error) {
+        console.error('Error executing MySQL query:', error);
+        res.status(500).json({ error: 'Error retrieving doctor information.' });
+    }
+});
 
-// // Get all medicines
-// app.get('/medicineinfo', async (req, res) => {
-//     try {
-//         const [rows] = await pool.query('SELECT * FROM medicineinfo');
-//         res.json(rows);
-//     } catch (error) {
-//         console.error('Error executing MySQL query:', error);
-//         res.status(500).json({ error: 'Error retrieving medicine information.' });
-//     }
-// });
-// console.log('Connected my sql');
+// Get all medicines
+app.get('/medicineinfo', async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM medicineinfo');
+        res.json(rows);
+    } catch (error) {
+        console.error('Error executing MySQL query:', error);
+        res.status(500).json({ error: 'Error retrieving medicine information.' });
+    }
+});
